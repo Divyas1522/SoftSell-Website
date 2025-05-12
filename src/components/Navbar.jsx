@@ -1,11 +1,8 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import ThemeToggle from './ToggelTheme';
 
-
 const Navbar = () => {
-
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -13,7 +10,7 @@ const Navbar = () => {
       <div className="max-w-8xl h-full mx-auto px-8 flex justify-between items-center">
 
         {/* Logo */}
-        <a href="#" className="flex items-center space-x-1 ">
+        <a href="#" className="flex items-center space-x-1">
           <div className=" md:ml-0 ml-[-50px] h-35 w-35 overflow-hidden hover:scale-108 transition-all ease-in-out duration-300">
             <img
               src="/icon-softsell.png"
@@ -40,7 +37,7 @@ const Navbar = () => {
         </nav>
 
         {/* Mobile Menu Icon */}
-        <div className="md:hidden md:mr-0 ml-30 z-50">
+        <div className="md:hidden md:mr-0 ml-30 z-50 sm:mr-0">
           <button
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu"
@@ -68,15 +65,17 @@ const Navbar = () => {
                   {item}
                 </a>
               ))}
+
+              {/* Theme Toggle in Mobile Menu */}
+              <div className="mt-4">
+                <ThemeToggle />
+              </div>
             </div>
           </div>
         )}
 
-
-
-
-        {/* Theme Toggle & Button */}
-        <div className="flex items-center space-x-4">
+        {/* Theme Toggle on Desktop */}
+        <div className="flex items-center hidden md:block">
           <ThemeToggle />
         </div>
       </div>
